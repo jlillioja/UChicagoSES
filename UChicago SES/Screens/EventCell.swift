@@ -37,7 +37,7 @@ class EventCell: UITableViewCell {
             location.leadingAnchor.constraint(equalTo: name.leadingAnchor),
             location.trailingAnchor.constraint(equalTo: name.trailingAnchor),
             location.topAnchor.constraint(equalTo: name.bottomAnchor, constant: margin),
-            location.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: margin)
+            location.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -margin)
         ].activate()
     }
     

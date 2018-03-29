@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+class RootNavigationController: UINavigationController {
+    
+    let entryListViewController = EventListViewController()
+    
+    override func viewDidLoad() {
+        
+        navigationBar.prefersLargeTitles = true
+        navigationBar.backgroundColor = Style.colors.teal
+        
+        setViewControllers([entryListViewController], animated: false)
+    }
+}

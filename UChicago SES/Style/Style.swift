@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import UIKit
+
+struct Style {
+    struct colors {
+        static let teal = UIColor.init(r: 88, g: 202, b: 250)
+    }
+}
