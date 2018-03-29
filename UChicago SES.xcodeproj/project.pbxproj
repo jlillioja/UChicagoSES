@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		164A5FA1206D524000FBB8D0 /* EventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 164A5FA0206D524000FBB8D0 /* EventListCell.xib */; };
 		16E840CE206D2CCF007A010A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E840CD206D2CCF007A010A /* AppDelegate.swift */; };
-		16E840D0206D2CCF007A010A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E840CF206D2CCF007A010A /* ViewController.swift */; };
+		16E840D0206D2CCF007A010A /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E840CF206D2CCF007A010A /* EventListViewController.swift */; };
 		16E840D3206D2CCF007A010A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E840D1206D2CCF007A010A /* Main.storyboard */; };
 		16E840D5206D2CCF007A010A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E840D4206D2CCF007A010A /* Assets.xcassets */; };
 		16E840D8206D2CD0007A010A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E840D6206D2CD0007A010A /* LaunchScreen.storyboard */; };
+		16E840E0206D31E5007A010A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16E840DF206D31E5007A010A /* GoogleService-Info.plist */; };
+		16E840E2206D3CD0007A010A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E840E1206D3CD0007A010A /* Event.swift */; };
+		E817ED3CAFD4C665093C510C /* Pods_UChicago_SES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928A1688CE7CB6ED0789E984 /* Pods_UChicago_SES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		164A5FA0206D524000FBB8D0 /* EventListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListCell.xib; sourceTree = "<group>"; };
 		16E840CA206D2CCF007A010A /* UChicago SES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UChicago SES.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E840CD206D2CCF007A010A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		16E840CF206D2CCF007A010A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16E840CF206D2CCF007A010A /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		16E840D2206D2CCF007A010A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16E840D4206D2CCF007A010A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16E840D7206D2CD0007A010A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16E840D9206D2CD0007A010A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16E840DF206D31E5007A010A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		16E840E1206D3CD0007A010A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		928A1688CE7CB6ED0789E984 /* Pods_UChicago_SES.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UChicago_SES.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DAA9FB3A984A721E3871834 /* Pods-UChicago SES.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UChicago SES.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UChicago SES/Pods-UChicago SES.debug.xcconfig"; sourceTree = "<group>"; };
+		C821EDB1FA387F75EE0A06AA /* Pods-UChicago SES.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UChicago SES.release.xcconfig"; path = "Pods/Target Support Files/Pods-UChicago SES/Pods-UChicago SES.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E817ED3CAFD4C665093C510C /* Pods_UChicago_SES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +51,8 @@
 			children = (
 				16E840CC206D2CCF007A010A /* UChicago SES */,
 				16E840CB206D2CCF007A010A /* Products */,
+				25DA5124053856CDD30F76B2 /* Pods */,
+				E10274F830604375BF2E98ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +68,33 @@
 			isa = PBXGroup;
 			children = (
 				16E840CD206D2CCF007A010A /* AppDelegate.swift */,
-				16E840CF206D2CCF007A010A /* ViewController.swift */,
+				16E840CF206D2CCF007A010A /* EventListViewController.swift */,
 				16E840D1206D2CCF007A010A /* Main.storyboard */,
 				16E840D4206D2CCF007A010A /* Assets.xcassets */,
 				16E840D6206D2CD0007A010A /* LaunchScreen.storyboard */,
 				16E840D9206D2CD0007A010A /* Info.plist */,
+				16E840DF206D31E5007A010A /* GoogleService-Info.plist */,
+				16E840E1206D3CD0007A010A /* Event.swift */,
+				164A5FA0206D524000FBB8D0 /* EventListCell.xib */,
 			);
 			path = "UChicago SES";
+			sourceTree = "<group>";
+		};
+		25DA5124053856CDD30F76B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DAA9FB3A984A721E3871834 /* Pods-UChicago SES.debug.xcconfig */,
+				C821EDB1FA387F75EE0A06AA /* Pods-UChicago SES.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E10274F830604375BF2E98ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				928A1688CE7CB6ED0789E984 /* Pods_UChicago_SES.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16E840DC206D2CD0007A010A /* Build configuration list for PBXNativeTarget "UChicago SES" */;
 			buildPhases = (
+				710FBEE78EA3ED55E9975ADF /* [CP] Check Pods Manifest.lock */,
 				16E840C6206D2CCF007A010A /* Sources */,
 				16E840C7206D2CCF007A010A /* Frameworks */,
 				16E840C8206D2CCF007A010A /* Resources */,
+				8468C9DB3A19CB403C4F5913 /* [CP] Embed Pods Frameworks */,
+				B9F9F9B92B557B130BD414FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,19 +160,80 @@
 			buildActionMask = 2147483647;
 			files = (
 				16E840D8206D2CD0007A010A /* LaunchScreen.storyboard in Resources */,
+				16E840E0206D31E5007A010A /* GoogleService-Info.plist in Resources */,
 				16E840D5206D2CCF007A010A /* Assets.xcassets in Resources */,
+				164A5FA1206D524000FBB8D0 /* EventListCell.xib in Resources */,
 				16E840D3206D2CCF007A010A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		710FBEE78EA3ED55E9975ADF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UChicago SES-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8468C9DB3A19CB403C4F5913 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UChicago SES/Pods-UChicago SES-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UChicago SES/Pods-UChicago SES-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9F9F9B92B557B130BD414FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UChicago SES/Pods-UChicago SES-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		16E840C6206D2CCF007A010A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16E840D0206D2CCF007A010A /* ViewController.swift in Sources */,
+				16E840D0206D2CCF007A010A /* EventListViewController.swift in Sources */,
+				16E840E2206D3CD0007A010A /* Event.swift in Sources */,
 				16E840CE206D2CCF007A010A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +369,7 @@
 		};
 		16E840DD206D2CD0007A010A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DAA9FB3A984A721E3871834 /* Pods-UChicago SES.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +385,7 @@
 		};
 		16E840DE206D2CD0007A010A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C821EDB1FA387F75EE0A06AA /* Pods-UChicago SES.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
