@@ -7,7 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		164A5FA1206D524000FBB8D0 /* EventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 164A5FA0206D524000FBB8D0 /* EventListCell.xib */; };
+		164A5FA3206D65A300FBB8D0 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FA2206D65A300FBB8D0 /* RootNavigationController.swift */; };
+		164A5FAA206D671B00FBB8D0 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FA5206D671B00FBB8D0 /* NSObject+.swift */; };
+		164A5FAB206D671B00FBB8D0 /* NSLayoutConstraint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FA6206D671B00FBB8D0 /* NSLayoutConstraint+.swift */; };
+		164A5FAC206D671B00FBB8D0 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FA7206D671B00FBB8D0 /* Array+.swift */; };
+		164A5FAD206D671B00FBB8D0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FA8206D671B00FBB8D0 /* UIView+.swift */; };
+		164A5FAE206D671B00FBB8D0 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FA9206D671B00FBB8D0 /* UIColor+.swift */; };
+		164A5FB0206D688300FBB8D0 /* GLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FAF206D688300FBB8D0 /* GLTable.swift */; };
+		164A5FB3206D736000FBB8D0 /* GLTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FB2206D736000FBB8D0 /* GLTableViewController.swift */; };
+		164A5FB5206D76EA00FBB8D0 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FB4206D76EA00FBB8D0 /* EventCell.swift */; };
+		164A5FB9206D799400FBB8D0 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FB8206D799400FBB8D0 /* Style.swift */; };
+		164A5FBB206D7B5C00FBB8D0 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FBA206D7B5C00FBB8D0 /* EventDetailViewController.swift */; };
+		164A5FBD206D7F7700FBB8D0 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FBC206D7F7700FBB8D0 /* Date+.swift */; };
 		16E840CE206D2CCF007A010A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E840CD206D2CCF007A010A /* AppDelegate.swift */; };
 		16E840D0206D2CCF007A010A /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E840CF206D2CCF007A010A /* EventListViewController.swift */; };
 		16E840D3206D2CCF007A010A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E840D1206D2CCF007A010A /* Main.storyboard */; };
@@ -19,7 +30,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		164A5FA0206D524000FBB8D0 /* EventListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListCell.xib; sourceTree = "<group>"; };
+		164A5FA2206D65A300FBB8D0 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		164A5FA5206D671B00FBB8D0 /* NSObject+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		164A5FA6206D671B00FBB8D0 /* NSLayoutConstraint+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+.swift"; sourceTree = "<group>"; };
+		164A5FA7206D671B00FBB8D0 /* Array+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		164A5FA8206D671B00FBB8D0 /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		164A5FA9206D671B00FBB8D0 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		164A5FAF206D688300FBB8D0 /* GLTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GLTable.swift; path = "UChicago SES/GLTable.swift"; sourceTree = SOURCE_ROOT; };
+		164A5FB2206D736000FBB8D0 /* GLTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLTableViewController.swift; sourceTree = "<group>"; };
+		164A5FB4206D76EA00FBB8D0 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		164A5FB8206D799400FBB8D0 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		164A5FBA206D7B5C00FBB8D0 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		164A5FBC206D7F7700FBB8D0 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		16E840CA206D2CCF007A010A /* UChicago SES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UChicago SES.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E840CD206D2CCF007A010A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16E840CF206D2CCF007A010A /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +68,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		164A5FA4206D671B00FBB8D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				164A5FA5206D671B00FBB8D0 /* NSObject+.swift */,
+				164A5FA6206D671B00FBB8D0 /* NSLayoutConstraint+.swift */,
+				164A5FA7206D671B00FBB8D0 /* Array+.swift */,
+				164A5FA8206D671B00FBB8D0 /* UIView+.swift */,
+				164A5FA9206D671B00FBB8D0 /* UIColor+.swift */,
+				164A5FBC206D7F7700FBB8D0 /* Date+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		164A5FB1206D735000FBB8D0 /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				164A5FAF206D688300FBB8D0 /* GLTable.swift */,
+				164A5FB2206D736000FBB8D0 /* GLTableViewController.swift */,
+			);
+			path = GL;
+			sourceTree = "<group>";
+		};
+		164A5FB6206D789100FBB8D0 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				16E840CF206D2CCF007A010A /* EventListViewController.swift */,
+				164A5FB4206D76EA00FBB8D0 /* EventCell.swift */,
+				164A5FBA206D7B5C00FBB8D0 /* EventDetailViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		164A5FB7206D798000FBB8D0 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				164A5FB8206D799400FBB8D0 /* Style.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 		16E840C1206D2CCF007A010A = {
 			isa = PBXGroup;
 			children = (
@@ -67,15 +129,18 @@
 		16E840CC206D2CCF007A010A /* UChicago SES */ = {
 			isa = PBXGroup;
 			children = (
+				164A5FB7206D798000FBB8D0 /* Style */,
+				164A5FB6206D789100FBB8D0 /* Screens */,
+				164A5FB1206D735000FBB8D0 /* GL */,
+				164A5FA4206D671B00FBB8D0 /* Extensions */,
 				16E840CD206D2CCF007A010A /* AppDelegate.swift */,
-				16E840CF206D2CCF007A010A /* EventListViewController.swift */,
 				16E840D1206D2CCF007A010A /* Main.storyboard */,
 				16E840D4206D2CCF007A010A /* Assets.xcassets */,
 				16E840D6206D2CD0007A010A /* LaunchScreen.storyboard */,
 				16E840D9206D2CD0007A010A /* Info.plist */,
 				16E840DF206D31E5007A010A /* GoogleService-Info.plist */,
 				16E840E1206D3CD0007A010A /* Event.swift */,
-				164A5FA0206D524000FBB8D0 /* EventListCell.xib */,
+				164A5FA2206D65A300FBB8D0 /* RootNavigationController.swift */,
 			);
 			path = "UChicago SES";
 			sourceTree = "<group>";
@@ -162,7 +227,6 @@
 				16E840D8206D2CD0007A010A /* LaunchScreen.storyboard in Resources */,
 				16E840E0206D31E5007A010A /* GoogleService-Info.plist in Resources */,
 				16E840D5206D2CCF007A010A /* Assets.xcassets in Resources */,
-				164A5FA1206D524000FBB8D0 /* EventListCell.xib in Resources */,
 				16E840D3206D2CCF007A010A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,9 +296,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164A5FAA206D671B00FBB8D0 /* NSObject+.swift in Sources */,
 				16E840D0206D2CCF007A010A /* EventListViewController.swift in Sources */,
+				164A5FA3206D65A300FBB8D0 /* RootNavigationController.swift in Sources */,
 				16E840E2206D3CD0007A010A /* Event.swift in Sources */,
+				164A5FB5206D76EA00FBB8D0 /* EventCell.swift in Sources */,
+				164A5FB9206D799400FBB8D0 /* Style.swift in Sources */,
+				164A5FAD206D671B00FBB8D0 /* UIView+.swift in Sources */,
+				164A5FB0206D688300FBB8D0 /* GLTable.swift in Sources */,
 				16E840CE206D2CCF007A010A /* AppDelegate.swift in Sources */,
+				164A5FAB206D671B00FBB8D0 /* NSLayoutConstraint+.swift in Sources */,
+				164A5FAC206D671B00FBB8D0 /* Array+.swift in Sources */,
+				164A5FB3206D736000FBB8D0 /* GLTableViewController.swift in Sources */,
+				164A5FBD206D7F7700FBB8D0 /* Date+.swift in Sources */,
+				164A5FBB206D7B5C00FBB8D0 /* EventDetailViewController.swift in Sources */,
+				164A5FAE206D671B00FBB8D0 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

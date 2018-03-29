@@ -13,13 +13,27 @@ class EventListViewController: UIViewController {
     
     var events: [Event] = []
     
-    @IBOutlet weak var eventsTable: UITableView!
+    var eventsTable: GLTable! = nil
+    
+    override func loadView() {
+        super.loadView()
+        
+        let layout = view.safeAreaLayoutGuide
+        
+        eventsTable = GLTable(self)
+        view.addSubview(eventsTable)
+        [
+            eventsTable.topAnchor.constraint(equalTo: layout.topAnchor),
+            eventsTable.leadingAnchor.constraint(equalTo: layout.leadingAnchor),
+            eventsTable.trailingAnchor.constraint(equalTo: layout.trailingAnchor),
+            eventsTable.bottomAnchor.constraint(equalTo: layout.bottomAnchor)
+        ].activate()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eventsTable.dataSource = self
-        eventsTable.delegate = self
+        navigationItem.title = "UChicago SES"
         
         let db = Database.database().reference()
         
@@ -65,7 +79,7 @@ class EventListViewController: UIViewController {
     
 }
 
-extension EventListViewController: UITableViewDelegate, UITableViewDataSource {
+extension EventListViewController: GLTableViewController {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
