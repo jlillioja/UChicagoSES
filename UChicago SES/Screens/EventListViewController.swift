@@ -34,6 +34,7 @@ class EventListViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "UChicago SES"
+        navigationController?.navigationBar.backgroundColor = Style.colors.teal
         
         let db = Database.database().reference()
         
