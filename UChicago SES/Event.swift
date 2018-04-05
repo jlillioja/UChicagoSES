@@ -9,8 +9,9 @@
 import Foundation
 
 struct Event {
-    let name: String?
-    let time: Date?
+    let name: String
+    let time: Date
     let location: String?
-    let slidesLink: URL?
+    let description: String?
+    let link: URL?
 }

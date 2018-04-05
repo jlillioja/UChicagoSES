@@ -15,8 +15,8 @@ class RootNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         
-        navigationBar.prefersLargeTitles = true
-//        navigationBar.backgroundColor = Style.colors.teal
+        navigationBar.isTranslucent = false
+        navigationBar.barTintColor = Style.colors.teal
         
         setViewControllers([entryListViewController], animated: false)
     }

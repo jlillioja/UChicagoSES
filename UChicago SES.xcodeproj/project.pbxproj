@@ -19,6 +19,8 @@
 		164A5FB9206D799400FBB8D0 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FB8206D799400FBB8D0 /* Style.swift */; };
 		164A5FBB206D7B5C00FBB8D0 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FBA206D7B5C00FBB8D0 /* EventDetailViewController.swift */; };
 		164A5FBD206D7F7700FBB8D0 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A5FBC206D7F7700FBB8D0 /* Date+.swift */; };
+		165681582075D39600F666E4 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 165681572075D39600F666E4 /* OpenSans-Regular.ttf */; };
+		1656815A2075D3A400F666E4 /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 165681592075D3A400F666E4 /* Merriweather-Regular.ttf */; };
 		16E840CE206D2CCF007A010A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E840CD206D2CCF007A010A /* AppDelegate.swift */; };
 		16E840D0206D2CCF007A010A /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E840CF206D2CCF007A010A /* EventListViewController.swift */; };
 		16E840D3206D2CCF007A010A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E840D1206D2CCF007A010A /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 		164A5FB8206D799400FBB8D0 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		164A5FBA206D7B5C00FBB8D0 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		164A5FBC206D7F7700FBB8D0 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		165681572075D39600F666E4 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		165681592075D3A400F666E4 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
 		16E840CA206D2CCF007A010A /* UChicago SES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UChicago SES.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E840CD206D2CCF007A010A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16E840CF206D2CCF007A010A /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,15 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
+		165681562075D36A00F666E4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				165681572075D39600F666E4 /* OpenSans-Regular.ttf */,
+				165681592075D3A400F666E4 /* Merriweather-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		16E840C1206D2CCF007A010A = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +142,7 @@
 		16E840CC206D2CCF007A010A /* UChicago SES */ = {
 			isa = PBXGroup;
 			children = (
+				165681562075D36A00F666E4 /* Fonts */,
 				164A5FB7206D798000FBB8D0 /* Style */,
 				164A5FB6206D789100FBB8D0 /* Screens */,
 				164A5FB1206D735000FBB8D0 /* GL */,
@@ -224,9 +238,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				165681582075D39600F666E4 /* OpenSans-Regular.ttf in Resources */,
 				16E840D8206D2CD0007A010A /* LaunchScreen.storyboard in Resources */,
 				16E840E0206D31E5007A010A /* GoogleService-Info.plist in Resources */,
 				16E840D5206D2CCF007A010A /* Assets.xcassets in Resources */,
+				1656815A2075D3A400F666E4 /* Merriweather-Regular.ttf in Resources */,
 				16E840D3206D2CCF007A010A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

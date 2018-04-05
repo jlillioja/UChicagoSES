@@ -19,7 +19,8 @@ class EventCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: EventCell.reuseIdentifier)
         
         let name = UILabel().forCustom()
-        name.text = event.name ?? ""
+        name.text = event.name
+        name.font = UIFont(name: "OpenSans-Regular", size: 15)
         name.adjustsFontSizeToFitWidth = true
         addSubview(name)
         [
@@ -28,16 +29,16 @@ class EventCell: UITableViewCell {
             name.trailingAnchor.constraint(equalTo: accessoryView?.leadingAnchor ?? safeAreaLayoutGuide.trailingAnchor, constant: -margin),
         ].activate()
         
-        let location = UILabel().forCustom()
-        location.text = event.location ?? ""
-        location.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+        let time = UILabel().forCustom()
+        time.text = event.time.toString(format: Style.date.short)
+        time.font = UIFont(name: "OpenSans-Regular", size: 12)
         name.adjustsFontSizeToFitWidth = true
-        addSubview(location)
+        addSubview(time)
         [
-            location.leadingAnchor.constraint(equalTo: name.leadingAnchor),
-            location.trailingAnchor.constraint(equalTo: name.trailingAnchor),
-            location.topAnchor.constraint(equalTo: name.bottomAnchor, constant: margin),
-            location.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -margin)
+            time.leadingAnchor.constraint(equalTo: name.leadingAnchor),
+            time.trailingAnchor.constraint(equalTo: name.trailingAnchor),
+            time.topAnchor.constraint(equalTo: name.bottomAnchor),
+            time.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -margin)
         ].activate()
     }
     

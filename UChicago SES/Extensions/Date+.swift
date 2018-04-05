@@ -15,4 +15,11 @@ extension Date {
         formatter.timeStyle = timeStyle
         return formatter.string(from: self)
     }
+    
+    func toString(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.setLocalizedDateFormatFromTemplate(format)
+        return formatter.string(from: self)
+    }
 }
