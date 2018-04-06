@@ -54,51 +54,16 @@ class EventListViewController: UIViewController {
         let db = Database.database().reference()
         
         db.child("events").observe(.childAdded, with: { (dataSnapshot) -> Void in
-            let event = self.deserialize(data: dataSnapshot.value as! NSDictionary)
+            let event = Event.deserialize(dataSnapshot: dataSnapshot)
             if (event != nil) {
                 self.events.append(event!)
                 self.events.sort(by: { (first, second) -> Bool in
-                    
                     first.time < second.time
                 })
                 self.eventsTable.reloadData()
             }
         })
     }
-    
-    func deserialize(data: NSDictionary) -> Event? {
-        let name = data["name"] as? String
-        if (name == nil) {
-            return nil
-        }
-        
-        let timestamp = data["time"] as? Int
-        var date: Date? = nil
-        if let timestamp = timestamp {
-            date = Date(timeIntervalSince1970: TimeInterval(timestamp))
-        }
-        if (date == nil) {
-            return nil
-        }
-        
-        let location = data["location"] as? String
-        
-        let description = data["description"] as? String
-        
-        var link: URL? = nil
-        let linkString = data["link"] as? String
-        if let linkString = linkString {
-            link = URL(string: linkString)
-        }
-        
-        return Event(
-            name: name!,
-            time: date!,
-            location: location,
-            description: description,
-            link: link)
-    }
-    
 }
 
 extension EventListViewController: GLTableViewController {
