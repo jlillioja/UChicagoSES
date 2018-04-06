@@ -15,6 +15,40 @@ class EventListViewController: UIViewController {
     
     var eventsTable: GLTable! = nil
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        let tabBarImage = UIImage(named: "schedule")
+        tabBarItem = UITabBarItem.init(title: "Schedule", image: tabBarImage, tag: 1)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let db = Database.database().reference()
+        
+        db.child("events").observe(.childAdded, with: { (dataSnapshot) -> Void in
+            let event = Event.deserialize(dataSnapshot: dataSnapshot)
+            if (event != nil) {
+                self.events.append(event!)
+                self.events.sort(by: { (first, second) -> Bool in
+                    first.time < second.time
+                })
+                self.eventsTable.reloadData()
+            }
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.navigationItem.title = "Schedule"
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        tabBarController?.navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
     override func loadView() {
         super.loadView()
         
@@ -44,26 +78,6 @@ class EventListViewController: UIViewController {
         ].activate()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        navigationItem.title = "Schedule"
-        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-        let db = Database.database().reference()
-        
-        db.child("events").observe(.childAdded, with: { (dataSnapshot) -> Void in
-            let event = Event.deserialize(dataSnapshot: dataSnapshot)
-            if (event != nil) {
-                self.events.append(event!)
-                self.events.sort(by: { (first, second) -> Bool in
-                    first.time < second.time
-                })
-                self.eventsTable.reloadData()
-            }
-        })
-    }
 }
 
 extension EventListViewController: GLTableViewController {

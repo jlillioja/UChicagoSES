@@ -11,13 +11,22 @@ import UIKit
 
 class RootNavigationController: UINavigationController {
     
+    let announcementsViewController = AnnouncementsViewController()
     let entryListViewController = EventListViewController()
+    let contactViewController = ContactViewController()
     
     override func viewDidLoad() {
         
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = Style.colors.teal
         
-        setViewControllers([entryListViewController], animated: false)
+        let tabBarViewController = UITabBarController()
+        tabBarViewController.setViewControllers([
+            announcementsViewController,
+            entryListViewController,
+            contactViewController
+        ], animated: true)
+        
+        setViewControllers([tabBarViewController], animated: false)
     }
 }

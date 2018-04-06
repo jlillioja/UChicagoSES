@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "static Announcement.deserialize(dataSnapshot:):Announcement.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "TimeInterval(time.rounded())">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EventDetailViewController.addComment(_:):EventDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "commentsList.contentSize.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EventDetailViewController.viewWillLayoutSubviews():EventDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "commentsList.contentSize.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Comment.deserialize(dataSnapshot:):Comment.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Date(timeIntervalSince1970: TimeInterval(timestamp))">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
