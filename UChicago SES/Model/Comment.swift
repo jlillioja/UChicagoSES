@@ -19,7 +19,7 @@ extension Comment {
         let data = dataSnapshot.value as! NSDictionary
         
         if let text = data["text"] as? String,
-            let timestamp = data["time"] as? Int {
+            let timestamp = data["time"] as? Double {
             let time = Date(timeIntervalSince1970: TimeInterval(timestamp))
             return Comment(text: text, time: time)
         } else {

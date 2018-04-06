@@ -24,54 +24,20 @@ class EventDetailViewController: UIViewController {
         
         navigationItem.title = event.name
         
-        event.snapshot.ref.child("comments").observe(.childAdded) { (dataSnapshot) in
+        event.comments.observe(.childAdded) { (dataSnapshot) in
             if let comment = Comment.deserialize(dataSnapshot: dataSnapshot) {
                 self.addComment(comment)
             }
         }
     }
     
-    var bottomConstraint: NSLayoutConstraint? = nil
-    
-    override func viewDidLoad() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.accomodateKeyboard(notification:)),
-            name: NSNotification.Name.UIKeyboardWillChangeFrame,
-            object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func accomodateKeyboard(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
-            let animationCurve = UIViewAnimationOptions(rawValue: animationCurveRaw)
-            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
-                self.bottomConstraint?.constant = -margin
-            } else {
-                self.bottomConstraint?.constant = -(endFrame?.size.height ?? 0.0 + margin)
-            }
-            UIView.animate(withDuration: duration,
-                           delay: TimeInterval(0),
-                           options: animationCurve,
-                           animations: { self.view.layoutIfNeeded() },
-                           completion: nil)
-        }
-    }
-    
     private func addComment(_ comment: Comment) {
         comments.append(comment)
         comments.sort(by: { (first, second) -> Bool in
-            first.time < second.time
+            second.time < first.time
         })
         commentsList.insertArrangedSubview(CommentCell(comment), at: comments.index(of: comment)!)
-//        commentsListHeightConstraint.constant = commentsList.intrinsicContentSize.height
+        //        commentsListHeightConstraint.constant = commentsList.intrinsicContentSize.height
         view.layoutSubviews()
     }
     
@@ -84,50 +50,52 @@ class EventDetailViewController: UIViewController {
         view.backgroundColor = .white
         
         let scrollView = UIScrollView().forCustom()
-                view.addSubview(scrollView)
-                [
-                    scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-                    scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                    scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                    scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                ].activate()
-//        view.encapsulate(scrollView)
+        view.addSubview(scrollView)
+        [
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ].activate()
         
-        let layout = scrollView.contentLayoutGuide
-        
-        let container = UIView().forCustom()
-        container.setContentHuggingPriority(.required, for: .vertical)
+        let container = UIStackView().forCustom()
+        container.alignment = .fill
+        container.axis = .vertical
+        container.spacing = margin
         scrollView.addSubview(container)
         [
-            container.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-            container.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            container.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
-            container.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor)
-        ].activate()
+            container.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: margin),
+            container.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: margin),
+            //            container.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+            container.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -margin),
+            container.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -margin)
+            ].activate()
         
         let name = UILabel().forCustom()
         name.font = Style.font.merriweather
         name.textAlignment = .center
         name.text = event.name
-        scrollView.addSubview(name)
-        [
-            name.topAnchor.constraint(equalTo: container.topAnchor, constant: margin),
-            name.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: margin),
-            name.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -margin),
-        ].activate()
+        container.addArrangedSubview(name)
+        //        [
+        //            name.topAnchor.constraint(equalTo: container.topAnchor, constant: margin),
+        //            name.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: margin),
+        //            name.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -margin),
+        //            ].activate()
         
         let time = UILabel().forCustom()
         time.text = "Time: \(event.time.toString(format: Style.date.long))"
         time.font = Style.font.sans
-        container.addSubview(time)
-        [
-            time.topAnchor.constraint(equalTo: name.bottomAnchor, constant: margin),
-            time.leadingAnchor.constraint(equalTo: name.leadingAnchor),
-            time.trailingAnchor.constraint(equalTo: name.trailingAnchor)
-            ].activate()
+        container.addArrangedSubview(time)
+        //        [
+        //            time.topAnchor.constraint(equalTo: name.bottomAnchor, constant: margin),
+        //            time.leadingAnchor.constraint(equalTo: name.leadingAnchor),
+        //            time.trailingAnchor.constraint(equalTo: name.trailingAnchor)
+        //            ].activate()
         
         let location = UILabel().forCustom()
         location.font = Style.font.sans
+        location.numberOfLines = 0
+        location.lineBreakMode = .byWordWrapping
         if let locationString = event.location {
             location.text = "Location: \(locationString)"
             location.textColor = Style.colors.teal
@@ -143,23 +111,23 @@ class EventDetailViewController: UIViewController {
         } else {
             location.text = "Location: TBD"
         }
-        container.addSubview(location)
-        [
-            location.topAnchor.constraint(equalTo: time.bottomAnchor, constant: margin),
-            location.leadingAnchor.constraint(equalTo: time.leadingAnchor),
-            location.trailingAnchor.constraint(equalTo: time.trailingAnchor),
-            ].activate()
+        container.addArrangedSubview(location)
+        //        [
+        //            location.topAnchor.constraint(equalTo: time.bottomAnchor, constant: margin),
+        //            location.leadingAnchor.constraint(equalTo: time.leadingAnchor),
+        //            location.trailingAnchor.constraint(equalTo: time.trailingAnchor),
+        //            ].activate()
         
         let description = UILabel().forCustom()
         description.text = event.description
         description.font = Style.font.sans
         description.numberOfLines = 0
-        container.addSubview(description)
-        [
-            description.topAnchor.constraint(equalTo: location.bottomAnchor, constant: margin),
-            description.leadingAnchor.constraint(equalTo: location.leadingAnchor),
-            description.trailingAnchor.constraint(equalTo: location.trailingAnchor),
-            ].activate()
+        container.addArrangedSubview(description)
+        //        [
+        //            description.topAnchor.constraint(equalTo: location.bottomAnchor, constant: margin),
+        //            description.leadingAnchor.constraint(equalTo: location.leadingAnchor),
+        //            description.trailingAnchor.constraint(equalTo: location.trailingAnchor),
+        //            ].activate()
         
         let link = UILabel().forCustom()
         link.text = event.link?.absoluteString
@@ -170,36 +138,68 @@ class EventDetailViewController: UIViewController {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
-        container.addSubview(link)
-        [
-            link.topAnchor.constraint(equalTo: description.bottomAnchor, constant: margin),
-            link.leadingAnchor.constraint(equalTo: description.leadingAnchor),
-            link.trailingAnchor.constraint(equalTo: description.trailingAnchor),
-            ].activate()
+        container.addArrangedSubview(link)
+        //        [
+        //            link.topAnchor.constraint(equalTo: description.bottomAnchor, constant: margin),
+        //            link.leadingAnchor.constraint(equalTo: description.leadingAnchor),
+        //            link.trailingAnchor.constraint(equalTo: description.trailingAnchor),
+        //            ].activate()
+        
+        
+        //        [
+        //            submitCommentButton.topAnchor.constraint(equalTo: commentEntry.bottomAnchor, constant: margin),
+        //            submitCommentButton.leadingAnchor.constraint(equalTo: commentEntry.leadingAnchor),
+        //            submitCommentButton.trailingAnchor.constraint(equalTo: commentEntry.trailingAnchor),
+        //            submitCommentButton.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+        //        ].activate()
         
         let commentsTitle = UILabel().forCustom()
         commentsTitle.text = "COMMENTS"
         commentsTitle.font = Style.font.merriweather?.withSize(18)
         commentsTitle.textAlignment = .right
-        container.addSubview(commentsTitle)
-        [
-            commentsTitle.topAnchor.constraint(equalTo: link.bottomAnchor, constant: margin),
-            commentsTitle.leadingAnchor.constraint(equalTo: link.leadingAnchor),
-            commentsTitle.trailingAnchor.constraint(equalTo: link.trailingAnchor),
-//            commentsTitle.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-        ].activate()
-//
+        container.addArrangedSubview(commentsTitle)
+        //        [
+        //            commentsTitle.topAnchor.constraint(equalTo: link.bottomAnchor, constant: margin),
+        //            commentsTitle.leadingAnchor.constraint(equalTo: link.leadingAnchor),
+        //            commentsTitle.trailingAnchor.constraint(equalTo: link.trailingAnchor),
+        //        ].activate()
+        
+        let commentEntry = UITextField().forCustom()
+        commentEntry.placeholder = "Enter your comment"
+        container.addArrangedSubview(commentEntry)
+        //        [
+        //            commentEntry.topAnchor.constraint(equalTo: commentsList.bottomAnchor, constant: margin),
+        //            commentEntry.leadingAnchor.constraint(equalTo: commentsList.leadingAnchor),
+        //            commentEntry.trailingAnchor.constraint(equalTo: commentsList.trailingAnchor),
+        //        ].activate()
+        
+        let submitCommentButton = UIButton().forCustom()
+        submitCommentButton.backgroundColor = Style.colors.teal
+        submitCommentButton.setTitle(" Submit ", for: .normal)
+        submitCommentButton.setTitleColor(.white, for: .normal)
+        submitCommentButton.layer.cornerRadius = 5
+        submitCommentButton.onTap {
+            if (!(commentEntry.text?.isEmpty ?? true)) {
+                let timestamp = Date().timeIntervalSince1970.rounded()
+                self.event.comments.childByAutoId().setValue(["text": commentEntry.text, "time": timestamp])
+                commentEntry.text = ""
+                commentEntry.resignFirstResponder()
+            }
+        }
+        container.addArrangedSubview(submitCommentButton)
+        
         commentsList = UIStackView().forCustom()
         commentsList.alignment = .leading
         commentsList.axis = .vertical
         commentsList.distribution = .fill
         
-        container.addSubview(commentsList)
-        [
-            commentsList.topAnchor.constraint(equalTo: commentsTitle.bottomAnchor, constant: margin),
-            commentsList.leadingAnchor.constraint(equalTo: commentsTitle.leadingAnchor),
-            commentsList.trailingAnchor.constraint(equalTo: commentsTitle.trailingAnchor),
-            commentsList.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-        ].activate()
+        container.addArrangedSubview(commentsList)
+        //        [
+        //            commentsList.topAnchor.constraint(equalTo: commentsTitle.bottomAnchor, constant: margin),
+        //            commentsList.leadingAnchor.constraint(equalTo: commentsTitle.leadingAnchor),
+        //            commentsList.trailingAnchor.constraint(equalTo: commentsTitle.trailingAnchor),
+        //        ].activate()
+        
+        
     }
 }

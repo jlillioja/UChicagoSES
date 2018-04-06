@@ -10,12 +10,12 @@ import Foundation
 import FirebaseDatabase
 
 struct Event {
-    let snapshot: DataSnapshot
     let name: String
     let time: Date
     let location: String?
     let description: String?
     let link: URL?
+    let comments: DatabaseReference
 }
 
 extension Event {
@@ -46,11 +46,12 @@ extension Event {
         }
         
         return Event(
-            snapshot: dataSnapshot,
             name: name!,
             time: date!,
             location: location,
             description: description,
-            link: link)
+            link: link,
+            comments: dataSnapshot.childSnapshot(forPath: "comments").ref
+        )
     }
 }
