@@ -25,7 +25,7 @@ class ContactViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.navigationItem.title = "Announcements"
+        tabBarController?.navigationItem.title = "Contact"
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         tabBarController?.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
@@ -61,24 +61,45 @@ class ContactViewController: UIViewController {
         title.textAlignment = .center
         container.addArrangedSubview(title)
         
-        let ucpd = UILabel().forCustom()
-        ucpd.text = "UCPD"
-        ucpd.onTap {
-//            UIApplication.shared.open(URL(string: "tel://911")!, options: [:], completionHandler: nil)
+        let websiteLink = UILabel().forCustom()
+        websiteLink.text = "SES Website"
+        websiteLink.font = Style.font.sans?.withSize(16)
+        websiteLink.textAlignment = .center
+        websiteLink.textColor = Style.colors.teal
+        websiteLink.onTap {
+            UIApplication.shared.open(URL(string: "http://uchicagoses.org/")!, options: [:], completionHandler: nil)
         }
-        container.addArrangedSubview(ucpd)
+        container.addArrangedSubview(websiteLink)
         
-        let ucpdLink = UITextView().forCustom()
-        ucpdLink.text = "911"
-        ucpdLink.isEditable = false
-        ucpdLink.isUserInteractionEnabled = true
-        ucpdLink.dataDetectorTypes = UIDataDetectorTypes.phoneNumber
+        let ucpdDescription = UILabel().forCustom()
+        ucpdDescription.font = Style.font.sans?.withSize(12)
+        ucpdDescription.numberOfLines = 0
+        ucpdDescription.text = "For emergencies, please contact the University of Chicago Police Department. To reach:\n\nPress 123 from on-campus phones\nPress the red button on an emergency phone\nCall (773) 702 8181 from other phones."
+        container.addArrangedSubview(ucpdDescription)
+        
+        let ucpdLink = UILabel().forCustom()
+        ucpdLink.text = "UCPD: (773) 702 8181"
+        ucpdLink.textAlignment = .center
+        ucpdLink.textColor = Style.colors.teal
+        ucpdLink.onTap {
+            UIApplication.shared.open(URL(string: "tel://1-773-702-8181")!, options: [:], completionHandler: nil)
+        }
         container.addArrangedSubview(ucpdLink)
         
-        let deanOnCallTitle = UILabel().forCustom()
-        deanOnCallTitle.text = "Dean On Call"
-        container.addArrangedSubview(deanOnCallTitle)
+        let deanOnCallDescription = UILabel().forCustom()
+        deanOnCallDescription.text = "One of the resources the University makes available to students is the support and guidance of a University administrator who is on call and can be reached 24 hours a day, 7 days a week. This administrator is called the Dean-on-Call and can be reached by calling (773) 834-HELP (4357) or 4-HELP (4357) from a campus phone."
+        deanOnCallDescription.font = Style.font.sans?.withSize(12)
+        deanOnCallDescription.numberOfLines = 0
+        container.addArrangedSubview(deanOnCallDescription)
         
+        let deanOnCallLink = UILabel().forCustom()
+        deanOnCallLink.text = "Dean On Call: (773) 834 4357"
+        deanOnCallLink.textAlignment = .center
+        deanOnCallLink.textColor = Style.colors.teal
+        deanOnCallLink.onTap {
+            UIApplication.shared.open(URL(string: "tel://1-773-834-4357")!, options: [:], completionHandler: nil)
+        }
+        container.addArrangedSubview(deanOnCallLink)
     }
     
 }
